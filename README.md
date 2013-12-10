@@ -14,8 +14,8 @@ $ bro -C  -r examples/sample_traffic.pcap xorpe.bro
 Once bro has processed the PCAP, we can use `bro-cut` to see the file in notice.log:
 
 ```
-$ bro-cut fuid file_desc msg sub  < notice.log 
-FNafFq4QjgnpbFblCe    http://justaplaceholder.s3.amazonaws.com/notabinary.jpg    XOR'd Binary Detected    deadbeefdeaf
+$ bro-cut fuid msg sub file_desc < notice.log 
+FNafFq4QjgnpbFblCe    XOR'd Binary Detected    deadbeefdeaf    http://justaplaceholder.s3.amazonaws.com/notabinary.jpg
 ```
 
 The XOR key (deadbeefdeaf) is hex-encoded. We can use `examples/xor_file.py` to (de)XOR it:
