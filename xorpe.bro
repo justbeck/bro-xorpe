@@ -86,6 +86,10 @@ event file_new(f: fa_file)
 	{
 
 	# For now, make sure we capture enough of the file in the first block to try the XORing
+	if (! f?$bof_buffer){ 
+		return;
+	}
+
 	if(f$bof_buffer_size < 117){
 		return;
 	}
